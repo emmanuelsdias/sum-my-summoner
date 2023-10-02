@@ -9,10 +9,10 @@ app.use(cors());
 
 const data = {
   'br': {
-    'yano': {
-      name: 'Yano',
+    'testusername': {
+      name: 'TestUsername',
       iconId: 746,
-      level: 26,
+      level: 0,
     },
   },
   'na': {},
@@ -71,8 +71,10 @@ app.get('/read/:region/:username', (req, res) => {
   }
 });
 
-const port = 3001; 
+// const port = 3001; 
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`Server is running on port ${port}`);
+// });
+
+module.exports = app;
