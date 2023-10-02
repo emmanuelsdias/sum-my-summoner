@@ -1,10 +1,10 @@
 import React from 'react';
 
-function Title() {
+function Title({title, subtitle}) {
   return (
     <div id='title'>
-      <h1>SUM MY SUMMONER</h1>
-      <p>Check a summoner stats below!</p>
+      <h1>{title}</h1>
+      <p>{subtitle}</p>
     </div>
   );
 }

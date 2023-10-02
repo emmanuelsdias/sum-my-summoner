@@ -10,7 +10,7 @@ function App() {
     <Router>
       <Routes>
         <Route exact path="/" element={<SearchPage/>}/>
-        <Route exact path="/summoner/:region/:username" element={<ContentPage/>}/>
+        <Route path="/summoner/:region/:username" element={<ContentPage/>}/>
         <Route path="*" element={<NotFoundPage/>}/>
       </Routes>
     </Router>

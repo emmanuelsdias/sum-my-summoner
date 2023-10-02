@@ -6,7 +6,10 @@ import SearchBar from "../components/SearchBar.js";
 function SearchPage() {
   return (
     <div id='search-page'>
-      <Title />
+      <Title
+        title={'SUM MY SUMMONER'} 
+        subtitle={'Check a summoner stats below!'} 
+      />
       <SearchBar />
     </div>
   );
