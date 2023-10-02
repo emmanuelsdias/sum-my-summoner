@@ -1,4 +1,0 @@
-{
-    "appService.defaultWebAppToDeploy": "/subscriptions/21197aa3-693a-4a27-ac8a-9b0a2932b65f/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/sum-my-summoner-backend",
-    "appService.deploySubpath": "backend"
-}
