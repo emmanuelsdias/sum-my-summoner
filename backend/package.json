@@ -1,8 +1,10 @@
 {
+  "name": "sum-my-summoner-backend",
+  "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./bin/www",
-    "devstart": "nodemon ./bin/www"
+    "start": "node ./bin/www"
   },
   "dependencies": {
     "cors": "^2.8.5",
