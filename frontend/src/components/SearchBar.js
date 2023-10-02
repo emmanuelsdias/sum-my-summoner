@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function SearchBar({ onSearch }) {
+function SearchBar() {
+  const navigate = useNavigate();
   const [query, setQuery] = useState("");
 
   const handleInputChange = (e) => {
@@ -8,7 +10,9 @@ function SearchBar({ onSearch }) {
   };
 
   const handleSearch = () => {
-    onSearch(query);
+    const region = document.getElementById("select-region").value;
+    const url = `/summoner/${region}/${query}`;
+    navigate(url);
   };
 
   return (
@@ -16,9 +20,9 @@ function SearchBar({ onSearch }) {
       <div id='search-bar'>
         <div id='search-region'>
           <span className='descriptor'>Region</span>
-          <select>
-            <option value="BR" selected>Brazil</option>
-            <option value="NA">North America</option>
+          <select id='select-region'>
+            <option value="br" selected>Brazil</option>
+            <option value="na">North America</option>
           </select>
         </div>
         <div id='search-username'>

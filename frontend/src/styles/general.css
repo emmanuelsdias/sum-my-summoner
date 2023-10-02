@@ -25,7 +25,7 @@ p, span {
   color       : var(--GREY-1);
 }
 
-#main-page {
+#search-page {
   position          : absolute;
   top               : 50%;
   left              : 0;
@@ -36,7 +36,7 @@ p, span {
   transform         : translateY(-50%);
 }
 
-body {
+#search-page {
   background-image    : url('../images/hextec-background.jpg');
   background-size     : min(1200px, max(100vw, 800px)) auto;
   background-repeat   : no-repeat;

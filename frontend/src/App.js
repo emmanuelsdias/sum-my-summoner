@@ -1,23 +1,19 @@
-import React, { useState } from "react";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import Title from "./components/Title";
-import SearchBar from "./components/SearchBar";
-import SummonerResult from "./components/SummonerResult";
+import SearchPage from './pages/SearchPage.js';
+import ContentPage from './pages/ContentPage.js';
+import NotFoundPage from './pages/NotFoundPage.js';
 
 function App() {
-  const [summonerResult, setSummonerResults] = useState([]);
-  
-  const handleSearch = (query) => {
-    const dummy = []
-    setSummonerResults(dummy);
-  };
-
   return (
-    <div id='main-page'>
-      <Title />
-      <SearchBar onSearch={handleSearch} />
-      <SummonerResult results={summonerResult} />
-    </div>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<SearchPage/>}/>
+        <Route exact path="/summoner/:region/:username" element={<ContentPage/>}/>
+        <Route path="*" element={<NotFoundPage/>}/>
+      </Routes>
+    </Router>
   );
 }
 
