@@ -1,3 +1,3 @@
-serverBaseURL = 'http://localhost:3001';
+const serverBaseURL = "https://localhost:3001";
 
-module.exports = serverBaseURL;
+export default serverBaseURL;

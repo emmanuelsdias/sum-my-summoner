@@ -1,0 +1,11 @@
+@import '../../styles/fonts.css';
+@import '../../styles/themes.css';
+
+#not-found-page {
+  background-image    : url('../../images/hextec-background.jpg');
+  background-size     : min(1200px, max(100vw, 800px)) auto;
+  background-repeat   : no-repeat;
+  background-position : 50% calc(50% + 0px);
+}
+
+#not-found-page #title h1 { font-size : 8rem; }
