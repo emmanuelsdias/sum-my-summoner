@@ -1,18 +1,20 @@
 import express from "express";
-import { searchAccount, updateAccount } from "./controllers.js";
+import { searchSummoner, updateSummoner } from "../controllers/summoner.js";
 
 const router = express.Router();
 
+// Summoner search
 router.get("/search/:region/:username", async (req, res) => {
   const { region, username } = req.params;
   const usernameNoCaps = username.toLowerCase();
-  searchAccount(region, usernameNoCaps, res);
+  searchSummoner(region, usernameNoCaps, res);
 });
 
+// Summoner update
 router.get("/update/:region/:username", async (req, res) => {
   const { region, username } = req.params;
   const usernameNoCaps = username.toLowerCase();
-  updateAccount(region, usernameNoCaps, res);
+  updateSummoner(region, usernameNoCaps, res);
 });
 
 export default router;

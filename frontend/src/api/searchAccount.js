@@ -3,7 +3,7 @@ import serverBaseURL from "./config.js";
 async function searchAccount(region, username) {
   try {
     const response = await fetch(
-      `${serverBaseURL}/search/${region}/${username}`
+      `${serverBaseURL}/summoner/search/${region}/${username}`
     );
     if (response.status === 200) {
       return await response.json();

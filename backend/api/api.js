@@ -1,9 +1,7 @@
 import fetch from "node-fetch";
 
-import AccountData from "./models.js";
-
-// This key is already expired, please use your own key
-const apiKey = "VALID_KEY_HERE";
+import SummonerData from "../models/summoner.js";
+import API_KEY from "../secrets/riotApiKey.js";
 
 const parseRegion = (region) => {
   if (region === "br") {
@@ -17,22 +15,22 @@ const parseRegion = (region) => {
 
 async function fetchRiotData(region, username) {
   region = parseRegion(region);
-  const apiUrl = `https://${region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${username}`;
+  const API_URL = `https://${region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${username}`;
   try {
-    const response = await fetch(apiUrl, {
+    const response = await fetch(API_URL, {
       method: "GET",
       headers: {
-        "X-Riot-Token": apiKey,
+        "X-Riot-Token": API_KEY,
         "Content-Type": "application/json",
       },
     });
     if (response.status === 404) {
-      throw new Error("Account not found");
+      throw new Error("Summoner not found");
     } else if (!response.ok) {
       throw new Error("Unknown error");
     }
     const data = await response.json();
-    return new AccountData(
+    return new SummonerData(
       data.name, // username
       data.summonerLevel, // level
       data.profileIconId // iconId

@@ -3,7 +3,7 @@ import serverBaseURL from "./config.js";
 async function updateAccount(region, username) {
   try {
     const response = await fetch(
-      `${serverBaseURL}/update/${region}/${username}`
+      `${serverBaseURL}/summoner/update/${region}/${username}`
     );
     if (response.status === 200) {
       return await response.json();

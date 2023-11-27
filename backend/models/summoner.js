@@ -1,4 +1,4 @@
-class AccountData {
+class SummonerData {
   constructor(username, level, iconId) {
     this.username = username;
     this.level = level;
@@ -6,4 +6,4 @@ class AccountData {
   }
 }
 
-export default AccountData;
+export default SummonerData;
