@@ -1,28 +1,50 @@
 import { React, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate } from "react-router-dom";
 import { GoogleOutlined } from "@ant-design/icons";
 import { Divider } from "antd";
 
 import "./style.css";
 import Title from "../../components/Title/Title.js";
+import { signInWithGoogle, signUpLocal } from "../../api/firebase.js";
+import { login } from "../../store";
 
 function SignupPage() {
+  const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
-  const [hasSigned, setHasSigned] = useState(false);
+  const isLogged = useSelector((state) => state.isLogged);
+  const [signed, setSigned] = useState(false);
 
-  const onSubmit = (data) => {
-    console.log(data);
-    setHasSigned(true);
+  const onSubmit = async (data) => {
+    const response = await signUpLocal(data.name, data.email, data.password);
+    if (response) {
+      setSigned(true);
+    }
   };
 
-  if(hasSigned) {
+  const onClickGoogle = async () => {
+    const response = await signInWithGoogle();
+    if (response) {
+      if (response.name && response.email) {
+        dispatch(
+          login({
+            name: response.name,
+            email: response.email,
+            authByGoogle: true,
+          })
+        );
+      }
+    }
+  };
+
+  if (isLogged) {
     return <Navigate to="/" />;
   }
 
-  const loginGoogleStuff = () => {
-    console.log("Login with Google!");
-  };
+  if (signed) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <div id="signup-page" className="page">
@@ -49,7 +71,7 @@ function SignupPage() {
           OR
         </Divider>
 
-        <div onClick={loginGoogleStuff} className="login-google">
+        <div onClick={onClickGoogle} className="login-google">
           <GoogleOutlined
             style={{ fontSize: "30px", color: "var(--BLUE-3)" }}
           />

@@ -1,27 +1,52 @@
 import { React, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate } from "react-router-dom";
 import { GoogleOutlined } from "@ant-design/icons";
 import { Divider } from "antd";
 
 import "./style.css";
 import Title from "../../components/Title/Title.js";
+import { signInWithGoogle, logInLocal } from "../../api/firebase.js";
+import { login } from "../../store";
 
 function LoginPage() {
+  const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
-  const [token, setToken] = useState("");
+  const isLogged = useSelector((state) => state.isLogged);
 
-  const onSubmit = (data) => {
-    console.log(data);
-    setToken("123456789");
+  const onSubmit = async (data) => {
+    const response = await logInLocal(data.email, data.password);
+    if (response) {
+      if (response.name && response.email) {
+        dispatch(
+          login({
+            name: response.name,
+            email: response.email,
+            authByGoogle: false,
+          })
+        );
+      }
+    }
   };
 
-  const loginGoogleStuff = () => {
-    console.log("Login with Google!");
+  const onClickGoogle = async () => {
+    const response = await signInWithGoogle();
+    if (response) {
+      if (response.name && response.email) {
+        dispatch(
+          login({
+            name: response.name,
+            email: response.email,
+            authByGoogle: true,
+          })
+        );
+      }
+    }
   };
 
-  if (token) {
-    Navigate("/home");
+  if (isLogged) {
+    return <Navigate to="/home" />;
   }
 
   return (
@@ -30,8 +55,8 @@ function LoginPage() {
         <Title title={"Login Page"} />
         <input
           className="form-field"
-          {...register("username", { required: true })}
-          placeholder="Username"
+          {...register("email", { required: true })}
+          placeholder="Email"
         />
         <input
           className="form-field"
@@ -44,7 +69,7 @@ function LoginPage() {
           OR
         </Divider>
 
-        <div onClick={loginGoogleStuff} className="login-google">
+        <div onClick={onClickGoogle} className="login-google">
           <GoogleOutlined
             style={{ fontSize: "30px", color: "var(--BLUE-3)" }}
           />

@@ -1,4 +1,9 @@
 node_modules/
-ssl/
-secrets/
+
+riotApiKey.js
+*.key
+*.cert
+
+secrets.js
+
 draft.txt

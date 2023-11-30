@@ -1,7 +1,7 @@
 import fetch from "node-fetch";
 
 import SummonerData from "../models/summoner.js";
-import API_KEY from "../secrets/riotApiKey.js";
+import API_KEY from "./riotApiKey.js";
 
 const parseRegion = (region) => {
   if (region === "br") {

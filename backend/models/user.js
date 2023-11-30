@@ -1,13 +1,10 @@
-import mongoose from "mongoose";
-import passportLocalMongoose from "passport-local-mongoose";
-
-const userSchema = new mongoose.Schema({
-  email: String,
-  password: String,
-});
-
-userSchema.plugin(passportLocalMongoose);
-
-const User = mongoose.model("User", userSchema);
+class User {
+  constructor(name, email, password, authByGoogle) {
+    this.name = name;
+    this.email = email;
+    this.password = password;
+    this.authByGoogle = authByGoogle;
+  }
+}
 
 export default User;

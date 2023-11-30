@@ -7,8 +7,8 @@ import fs from "fs";
 import app from "../index.js";
 
 // Certificate for HTTPS
-const privateKey = fs.readFileSync("./secrets/server.key");
-const certificate = fs.readFileSync("./secrets/server.cert");
+const privateKey = fs.readFileSync("./bin/server.key");
+const certificate = fs.readFileSync("./bin/server.cert");
 
 // Normalize a port into a number, string, or false
 function normalizePort(val) {
