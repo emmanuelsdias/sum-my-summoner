@@ -42,7 +42,7 @@ function ContentPage() {
           <>
             {userData ? (
               <>
-                <h1>{userData.name}</h1>
+                <h1>{userData.username}</h1>
                 <img
                   src={getProfileIconUrl(userData.iconId)}
                   id="profile-icon"

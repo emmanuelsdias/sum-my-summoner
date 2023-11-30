@@ -10,12 +10,12 @@
   padding          : 10px;
   max-width        : 800px;
   min-width        : 250px;
-  background-color : var(--BLUE-6);
+  background-color : rgba(var(--BLUE-6-RGB), 0.9);
   border           : 1px solid var(--BLUE-5);
   display          : flex;
   flex-direction   : row;
   gap              : 10px;
-  opacity          : 0.95;
+  
 }
 
 .descriptor {
@@ -62,12 +62,13 @@
 }
 
 #search-bar button:hover {
-  border-color     : var(--GOLD-5);
   cursor           : pointer;
   background-color : var(--GOLD-6);
+  border-color     : var(--GOLD-5);
 }
 
-input, input:focus{
+#search-bar input, 
+#search-bar input:focus{
   border           : 0;
   outline          : none;
   width            : 100%;

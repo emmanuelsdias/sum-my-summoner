@@ -1,9 +1,9 @@
-import serverBaseURL from "./config.js";
+import backendURL from "./backendUrl.js";
 
 async function updateAccount(region, username) {
   try {
     const response = await fetch(
-      `${serverBaseURL}/summoner/update/${region}/${username}`
+      `${backendURL}/summoner/update/${region}/${username}`
     );
     if (response.status === 200) {
       return await response.json();

@@ -8,6 +8,14 @@
   --BLUE-6 : #091428;
   --BLUE-7 : #0A1428;
 
+  --BLUE-1-RGB : 205, 250, 250;
+  --BLUE-2-RGB :  10, 200, 185;
+  --BLUE-3-RGB :   3, 151, 171;
+  --BLUE-4-RGB :   0,  90, 130;
+  --BLUE-5-RGB :  10,  50,  60;
+  --BLUE-6-RGB :   9,  20,  40;
+  --BLUE-7-RGB :  10,  20,  40;
+
   /* Gold Color Palette */
   --GOLD-1 : #F0E6D2;
   --GOLD-2 : #C8AA6E;
@@ -17,6 +25,14 @@
   --GOLD-6 : #463714;
   --GOLD-7 : #32281E;
 
+  --GOLD-1-RGB : 240, 230, 210;
+  --GOLD-2-RGB : 200, 170, 110;
+  --GOLD-3-RGB : 200, 170, 110;
+  --GOLD-4-RGB : 200, 155,  60;
+  --GOLD-5-RGB : 120,  90,  40;
+  --GOLD-6-RGB :  70,  55,  20;
+  --GOLD-7-RGB :  50,  40,  30;
+
   /* Grey Color Palette */
   --GREY-1        : #A09B8C;
   --GREY-1-5      : #5B5A56;
@@ -24,4 +40,11 @@
   --GREY-3        : #1E2328;
   --GREY-COOL     : #1E282D;
   --HEXTECH-BLACK : #010A13;
+
+  --GREY-1-RGB        : 160, 155, 140;
+  --GREY-1-5-RGB      :  91,  90,  86;
+  --GREY-2-RGB        :  60,  60,  65;
+  --GREY-3-RGB        :  30,  35,  40;
+  --GREY-COOL-RGB     :  30,  40,  45;
+  --HEXTECH-BLACK-RGB :   1,  10,  19;
 }

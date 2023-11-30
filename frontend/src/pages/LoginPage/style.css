@@ -1,0 +1,95 @@
+@import '../../styles/fonts.css';
+@import '../../styles/themes.css';
+
+#login-page {
+  background-image    : url('../../images/hextec-background.jpg');
+  background-size     : min(1200px, max(100vw, 800px)) auto;
+  background-repeat   : no-repeat;
+  background-position : 50% calc(50%);
+  padding             : 20px;
+}
+
+
+#login-page .card-form {
+  background-color : rgba(var(--BLUE-6-RGB), 0.9);
+  border           : solid 1px var(--BLUE-5);
+  padding          : 40px;
+  display          : flex;
+  flex-direction   : column;
+  max-width        : 360px;
+  margin           : 0 auto;
+  gap              : 20px;
+}
+
+#login-page .form-field {
+  padding          : 20px;
+  outline          : none;
+  border           : 0px;
+  background-color : var(--BLUE-5);
+  color            : var(--BLUE-1);
+  font-size        : 16px;
+  margin           : 2px;
+}
+
+#login-page .form-field:focus{
+  background-color : var(--BLUE-6);
+  border           : solid 2px var(--BLUE-3);
+  margin           : 0px;
+}
+
+#login-page .form-field::placeholder {
+  color   : var(--BLUE-1);
+  opacity : 1;
+}
+
+#login-page .form-button {
+  padding          : 20px;
+  border           : 2px solid var(--GOLD-4);
+  font-family      : 'Beaufort';
+  font-weight      : 700;
+  background-color : var(--GOLD-5);
+  color            : var(--GOLD-1);
+}
+
+#login-page .form-button:hover {
+  cursor           : pointer;
+  background-color : var(--GOLD-6);
+  border-color     : var(--GOLD-5);
+}
+
+#login-page a {
+  text-align      : center;
+  font-family     : 'Spiegel';
+  font-weight     : 600;
+  text-decoration : none;
+  color           : var(--BLUE-1);
+}
+
+#login-page a:hover {
+  color : var(--BLUE-2);
+}
+
+#login-page .login-google {
+  height          : 60px;
+  padding         : 5px;
+  border          : 2px solid var(--BLUE-4);
+  color           : var(--BLUE-1);
+  font-size       : 16px;
+  margin          : 2px;
+  display         : flex;
+  align-items     : center;
+  justify-content : center;
+  gap             : 10px;
+}
+
+#login-page .login-google:hover {
+  cursor           : pointer;
+  background-color : var(--BLUE-5);
+  border-color     : var(--BLUE-5);
+}
+
+#login-page .login-google span {
+  font-size   : 20px;
+  font-weight : 600;
+  color       : var(--BLUE-1);
+}

@@ -1,15 +1,21 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import SearchPage from "./pages/SearchPage/SearchPage.js";
 import ContentPage from "./pages/ContentPage/ContentPage.js";
+import LoginPage from "./pages/LoginPage/LoginPage.js";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.js";
+import SearchPage from "./pages/SearchPage/SearchPage.js";
+import SignupPage from "./pages/SignupPage/SignupPage.js";
+import WelcomePage from "./pages/WelcomePage/WelcomePage.js";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<SearchPage />} />
+        <Route path="/" element={<WelcomePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/home" element={<SearchPage />} />
         <Route path="/summoner/:region/:username" element={<ContentPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

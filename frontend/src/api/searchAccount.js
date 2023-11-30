@@ -1,9 +1,9 @@
-import serverBaseURL from "./config.js";
+import backendURL from "./backendUrl.js";
 
 async function searchAccount(region, username) {
   try {
     const response = await fetch(
-      `${serverBaseURL}/summoner/search/${region}/${username}`
+      `${backendURL}/summoner/search/${region}/${username}`
     );
     if (response.status === 200) {
       return await response.json();
