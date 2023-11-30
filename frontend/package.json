@@ -6,6 +6,7 @@
     "@ant-design/icons": "^5.2.6",
     "@reduxjs/toolkit": "^1.9.7",
     "antd": "^5.11.5",
+    "d3": "^7.8.5",
     "firebase": "^10.7.0",
     "helmet": "^7.1.0",
     "react": "^18.2.0",

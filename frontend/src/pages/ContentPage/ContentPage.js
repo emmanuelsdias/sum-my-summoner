@@ -9,8 +9,7 @@ import searchSummoner from "../../api/searchSummoner.js";
 import updateSummoner from "../../api/updateSummoner.js";
 import refreshIcon from "../../images/refresh.svg";
 import DecoratedTitle from "../../components/DecoratedTitle/DecoratedTitle.js";
-
-// TODO: Add option to update data
+import DonutChart from "../../components/DonutChart/DonutChart.js";
 
 function ContentPage() {
   const { region, username } = useParams();
@@ -85,9 +84,20 @@ function ContentPage() {
                   alt=""
                 />
                 <h1>Level {userData.level}</h1>
+                <div style={{margin: "10px"}}>
+                  <DonutChart
+                    data={[
+                      { label: "Wins", value: userData.wins },
+                      { label: "Losses", value: userData.losses },
+                    ]}
+                  />
+                </div>
+
+                <h2>
+                  {userData.wins}W | {userData.losses}L
+                </h2>
               </>
             ) : (
-              // TODO: Add loading animation
               <h1>LOADING...</h1>
             )}
           </>
