@@ -6,13 +6,12 @@ import LoginPage from "./pages/LoginPage/LoginPage.js";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.js";
 import SearchPage from "./pages/SearchPage/SearchPage.js";
 import SignupPage from "./pages/SignupPage/SignupPage.js";
-import WelcomePage from "./pages/WelcomePage/WelcomePage.js";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<WelcomePage />} />
+        <Route path="/" element={<LoginPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/home" element={<SearchPage />} />
