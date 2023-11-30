@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 import "./style.css";
 import getProfileIconUrl from "../../api/getProfileIconUrl.js";
@@ -13,6 +15,7 @@ function ContentPage() {
   const { region, username } = useParams();
   const [userData, setUserData] = useState(null);
   const [notFound, setNotFound] = useState(false);
+  const isLogged = useSelector((state) => state.isLogged);
 
   useEffect(() => {
     async function readDataFromAPI() {
@@ -25,6 +28,10 @@ function ContentPage() {
     }
     readDataFromAPI();
   }, [region, username]);
+
+  if (!isLogged) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <div id="content-page" className="page">
