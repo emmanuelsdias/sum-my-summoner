@@ -23,7 +23,6 @@ function ContentPage() {
     try {
       const response = await updateSummoner(region, username);
       if (response) {
-        console.log("Summoner updated successfully.");
         const updatedData = await searchSummoner(region, username);
         if (updatedData) {
           setUserData(updatedData);
