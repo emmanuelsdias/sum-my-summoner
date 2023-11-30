@@ -11,6 +11,28 @@
   padding-top : 4px;
 }
 
+.username-and-refresh-icon {
+  transform: translateX(calc(5px + 12px));
+  display        : flex;
+  flex-direction : row;
+  align-items    : center;
+  gap            : 10px;
+}
+
+.username-and-refresh-icon img:hover {
+  cursor : pointer;
+}
+
+.username-and-refresh-icon .updating {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0.2;
+  }
+}
+
 #profile-icon {
   margin : 10px;
   width  : 150px;

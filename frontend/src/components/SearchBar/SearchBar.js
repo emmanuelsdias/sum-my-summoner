@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "./style.css";
-import searchAccount from "../../api/searchAccount.js";
+import searchSummoner from "../../api/searchSummoner.js";
 
 function SearchBar() {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ function SearchBar() {
     const region = document.getElementById("select-region").value;
     const url = `/summoner/${region}/${query}`;
     try {
-      const response = await searchAccount(region, query);
+      const response = await searchSummoner(region, query);
       if (response) {
         navigate(url);
       } else {

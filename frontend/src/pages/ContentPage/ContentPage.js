@@ -5,8 +5,9 @@ import { Navigate } from "react-router-dom";
 
 import "./style.css";
 import getProfileIconUrl from "../../api/getProfileIconUrl.js";
-import searchAccount from "../../api/searchAccount.js";
-
+import searchSummoner from "../../api/searchSummoner.js";
+import updateSummoner from "../../api/updateSummoner.js";
+import refreshIcon from "../../images/refresh.svg";
 import DecoratedTitle from "../../components/DecoratedTitle/DecoratedTitle.js";
 
 // TODO: Add option to update data
@@ -16,10 +17,30 @@ function ContentPage() {
   const [userData, setUserData] = useState(null);
   const [notFound, setNotFound] = useState(false);
   const isLogged = useSelector((state) => state.isLogged);
+  const [isUpdating, setIsUpdating] = useState(false);
+
+  const onRefreshClick = async () => {
+    setIsUpdating(true);
+    try {
+      const response = await updateSummoner(region, username);
+      if (response) {
+        console.log("Summoner updated successfully.");
+        const updatedData = await searchSummoner(region, username);
+        if (updatedData) {
+          setUserData(updatedData);
+        } else {
+          setNotFound(true);
+        }
+      }
+    } catch (error) {
+      console.error("Error updating summoner:", error);
+    }
+    setIsUpdating(false);
+  };
 
   useEffect(() => {
     async function readDataFromAPI() {
-      const data = await searchAccount(region, username);
+      const data = await searchSummoner(region, username);
       if (data) {
         setUserData(data);
       } else {
@@ -49,7 +70,15 @@ function ContentPage() {
           <>
             {userData ? (
               <>
-                <h1>{userData.username}</h1>
+                <div className="username-and-refresh-icon">
+                  <h1>{userData.username}</h1>
+                  <img
+                    className={isUpdating ? "updating" : ""}
+                    onClick={onRefreshClick}
+                    src={refreshIcon}
+                    alt="hyperplane logo"
+                  />
+                </div>
                 <img
                   src={getProfileIconUrl(userData.iconId)}
                   id="profile-icon"
